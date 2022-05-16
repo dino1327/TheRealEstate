@@ -22,11 +22,13 @@ public class App extends Application {
         FileSystemService.initDirectory();
         DBService.initDatabase();
         UserService.initService();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Autentificare - Real Estate");
         stage.setScene(new Scene(root, 640, 480));
         stage.show();
     }
 
     public static void main(String[] args) {
+        launch();
     }
 }
