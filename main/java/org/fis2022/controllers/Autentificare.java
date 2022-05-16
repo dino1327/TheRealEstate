@@ -64,7 +64,15 @@ public class Autentificare {
 
     @FXML
     public void loadRegisterPage(){
-    
+        try {
+            Stage stage = (Stage) loginMessage.getScene().getWindow();
+            Parent registerRoot = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
+            Scene scene = new Scene(registerRoot, 640, 480);
+            stage.setTitle("Inregistrare - RealEstate");
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
