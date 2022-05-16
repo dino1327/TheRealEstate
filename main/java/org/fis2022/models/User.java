@@ -56,7 +56,11 @@ public class User {
 
     @Override
     public int hashCode() {
-    
+        public int hashCode() {
+            int result = username.hashCode();
+            result = 31 * result + password.hashCode();
+            result = 31 * result + role.hashCode();
+            return result;
     }
 
     @Override
