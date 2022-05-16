@@ -15,5 +15,65 @@ import org.fis2022.models.User;
 import org.fis2022.services.UserService;
 
 public class Autentificare {
+    @FXML
+    public Text loginMessage;
+    @FXML
+    public PasswordField passwordField;
+    @FXML
+    public TextField usernameField;
+
+    @FXML
+    public void handleLoginAction() {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username == null || username.isEmpty()) {
+            loginMessage.setText("Adauga username!");
+            return;
+        }
+
+        if (password == null || password.isEmpty()) {
+            loginMessage.setText("Adauga parola!");
+            return;
+        }
+
+        String encoded_password = UserService.encodePassword(username, password);
+
+        try{
+            String stored_password = UserService.getHashedUserPassword(username);
+            if(stored_password.equals(encoded_password)){
+                if(UserService.getUser(username).getRole().equals("Client")){
+                    loadHomePage();
+                    return;
+                }
+                if(UserService.getUser(username).getRole().equals("Real Estate Agent")){
+                    loadCafeneaHomePage();
+                    return;
+                }
+                loginMessage.setText("nope");
+                return;
+            }
+
+        } catch(InvalidCredentials e){
+            loginMessage.setText(e.getMessage());
+            return;
+        }
+
+        loginMessage.setText("Autentificare incorecta!");
+    }
+
+    @FXML
+    public void loadRegisterPage(){
     
+    }
+
+    @FXML
+    private void loadHomePage(){
+    
+    }
+
+    @FXML
+    private void loadRealEstateHomePage(){
+    
+    }
 }
