@@ -19,6 +19,9 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         stage.setMinHeight(480);
         stage.setMinWidth(640);
+        FileSystemService.initDirectory();
+        DBService.initDatabase();
+        UserService.initService();
         stage.setTitle("Autentificare - Real Estate");
         stage.setScene(new Scene(root, 640, 480));
         stage.show();
