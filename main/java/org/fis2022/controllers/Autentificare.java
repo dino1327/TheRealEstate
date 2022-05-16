@@ -77,7 +77,20 @@ public class Autentificare {
 
     @FXML
     private void loadHomePage(){
-    
+        try{
+            User u = UserService.getUser(usernameField.getText());
+            Stage stage = (Stage) loginMessage.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Rezerva-Comanda.fxml"));
+            stage.setUserData(u);
+            Parent homeRoot = loader.load();
+            Scene scene = new Scene(homeRoot, 640, 480);
+            stage.setTitle("Coffee Shop");
+            stage.setScene(scene);
+        } catch (InvalidCredentials e){
+            loginMessage.setText(e.getMessage());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
