@@ -21,6 +21,10 @@
                 <TextField fx:id="usernameField" id="username" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
              <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
             <PasswordField fx:id="passwordField" id="password" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+             <Button onAction="#loadRegisterPage" text="Register" id="swapButton" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+
+             <Button onAction="#handleLoginAction" text="Login" id="loginButton" GridPane.columnIndex="1" GridPane.rowIndex="5"/>    
           <Text fx:id="loginMessage" id="message" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
 </GridPane>
