@@ -17,6 +17,11 @@ import java.nio.file.Path;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
+        stage.setMinHeight(480);
+        stage.setMinWidth(640);
+        stage.setTitle("Autentificare - Real Estate");
+        stage.setScene(new Scene(root, 640, 480));
+        stage.show();
     }
 
     public static void main(String[] args) {
