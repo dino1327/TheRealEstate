@@ -26,6 +26,18 @@ public class User {
         this.username = username;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public String getPassword() {
         return password;
     }
