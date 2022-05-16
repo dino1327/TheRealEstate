@@ -65,6 +65,12 @@ public class User {
 
     @Override
     public String toString() {
-
+        public String toString() {
+            return "UserDTO{" +
+                    "username='" + username + '\'' +
+                    ", password='" + password + '\'' +
+                    ", role='" + role + '\'' +
+                    '}';
+        }
     }
 }
